@@ -1,0 +1,2 @@
+# lightbox
+Vanilla JS lightbox
