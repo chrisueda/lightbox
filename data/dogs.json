@@ -1,78 +1,138 @@
 {
   "dogs": [
   {
-      "image": "/assets/images/raw/1.jpeg",
-      "source": "https://unsplash.com/photos/ybHtKz5He9Y"
+      "imageRaw": "/assets/images/raw/1.jpeg",
+      "imageThumbnail": "/assets/images/cropped/1.jpeg",
+      "source": "https://unsplash.com/photos/ybHtKz5He9Y",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/2.jpeg",
-      "source": "https://unsplash.com/photos/rY79kwEEyGo"
+      "imageRaw": "/assets/images/raw/2.jpeg",
+      "imageThumbnail": "/assets/images/cropped/2.jpeg",
+      "source": "https://unsplash.com/photos/rY79kwEEyGo",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/3.jpeg",
-      "source": "https://unsplash.com/photos/ngqyo2AYYnE"
+      "imageRaw": "/assets/images/raw/3.jpeg",
+      "imageThumbnail": "/assets/images/cropped/3.jpeg",
+      "source": "https://unsplash.com/photos/ngqyo2AYYnE",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/4.jpeg",
-      "source": "https://unsplash.com/photos/9A64wd1QaAU"
+      "imageRaw": "/assets/images/raw/4.jpeg",
+      "imageThumbnail": "/assets/images/cropped/4.jpeg",
+      "source": "https://unsplash.com/photos/9A64wd1QaAU",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/5.jpeg",
-      "source": "https://unsplash.com/photos/915UJQaxtrk"
+      "imageRaw": "/assets/images/raw/5.jpeg",
+      "imageThumbnail": "/assets/images/cropped/5.jpeg",
+      "source": "https://unsplash.com/photos/915UJQaxtrk",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/6.jpeg",
-      "source": "https://unsplash.com/photos/mx0DEnfYxic"
+      "imageRaw": "/assets/images/raw/6.jpeg",
+      "imageThumbnail": "/assets/images/cropped/6.jpeg",
+      "source": "https://unsplash.com/photos/mx0DEnfYxic",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/7.jpeg",
-      "source": "https://unsplash.com/photos/OsOQhAzcEKc"
+      "imageRaw": "/assets/images/raw/7.jpeg",
+      "imageThumbnail": "/assets/images/cropped/7.jpeg",
+      "source": "https://unsplash.com/photos/OsOQhAzcEKc",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/8.jpeg",
-      "source": "https://unsplash.com/photos/6WneSv56YVI"
+      "imageRaw": "/assets/images/raw/8.jpeg",
+      "imageThumbnail": "/assets/images/cropped/8.jpeg",
+      "source": "https://unsplash.com/photos/6WneSv56YVI",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/9.jpeg",
-      "source": "https://unsplash.com/photos/CdVG9f96kyg"
+      "imageRaw": "/assets/images/raw/9.jpeg",
+      "imageThumbnail": "/assets/images/cropped/9.jpeg",
+      "source": "https://unsplash.com/photos/CdVG9f96kyg",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/10.jpeg",
-      "source": "https://unsplash.com/photos/bVA2DI7c9e8"
+      "imageRaw": "/assets/images/raw/10.jpeg",
+      "imageThumbnail": "/assets/images/cropped/10.jpeg",
+      "source": "https://unsplash.com/photos/bVA2DI7c9e8",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/11.jpeg",
-      "source": "https://unsplash.com/photos/GvhSUEN-Lm8"
+      "imageRaw": "/assets/images/raw/11.jpeg",
+      "imageThumbnail": "/assets/images/cropped/11.jpeg",
+      "source": "https://unsplash.com/photos/GvhSUEN-Lm8",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/12.jpeg",
-      "source": "https://unsplash.com/photos/t2XHKIdc4Kw"
+      "imageRaw": "/assets/images/raw/12.jpeg",
+      "imageThumbnail": "/assets/images/cropped/12.jpeg",
+      "source": "https://unsplash.com/photos/t2XHKIdc4Kw",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/13.jpeg",
-      "source": "https://unsplash.com/photos/saRU3vzmgkY"
+      "imageRaw": "/assets/images/raw/13.jpeg",
+      "imageThumbnail": "/assets/images/cropped/13.jpeg",
+      "source": "https://unsplash.com/photos/saRU3vzmgkY",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/14.jpeg",
-      "source": "https://unsplash.com/photos/1z-kI6gIEpg"
+      "imageRaw": "/assets/images/raw/14.jpeg",
+      "imageThumbnail": "/assets/images/cropped/14.jpeg",
+      "source": "https://unsplash.com/photos/1z-kI6gIEpg",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     },
 
     {
-      "image": "/assets/images/raw/15.jpeg",
-      "source": "https://unsplash.com/photos/zHZ2nTnBnAQ"
+      "imageRaw": "/assets/images/raw/15.jpeg",
+      "imageThumbnail": "/assets/images/cropped/15.jpeg",
+      "source": "https://unsplash.com/photos/zHZ2nTnBnAQ",
+      "alt": "a nice description of a cuddly puppy",
+      "breed" : "snicker doodle",
+      "name" : "Rover"
     }
   ]
 }

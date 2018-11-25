@@ -1,6 +1,6 @@
 // Helper function to get json data.
 function XHR(file, callback) {
-  var xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       callback(xhr.responseText);
@@ -10,74 +10,123 @@ function XHR(file, callback) {
   xhr.send();
 }
 
-
-function processRequest(response) {
-  var data = JSON.parse(response);
-  var dogData = data["dogs"];
-
-  var modal = document.getElementById('modal-content');
-
-  // for (var key in dogData) {
-  //   var lightboxImage = document.createElement('img');
-  //   lightboxImage.src = dogData[key].image;
-  //   lightboxImage.alt = dogData[key].source
-  //   lightboxImage.width = 240;
-  //   div.appendChild(lightboxImage)
-  // }
-  // document.getElementsByTagName('body')[0].appendChild(div);
-  prepareThumbnails();
+// Add additional images to the page.
+function addImages(response) {
+  // Add content to page.
+  let data = JSON.parse(response);
+  data.dogs.forEach((e)=>{
+    let div = document.createElement('div');
+    div.className = "thumbnail-container";
+    let img = document.createElement('img');
+    img.src = e.imageThumbnail;
+    img.alt = e.source;
+    img.width = 240;
+    img.dataset.src = e.imageRaw;
+    img.alt = e.alt || '';
+    img.dataset.breed = e.breed || '';
+    img.dataset.name = e.name || '';
+    img.className = 'main-thumbnail';
+    img.addEventListener("click", openModal);
+    div.appendChild(img)
+    document.getElementsByTagName('main')[0].appendChild(div);
+  })
 }
 
-// Prepare thumbnails.
-function prepareThumbnails() {
-  var modal = document.getElementById('modal');
-  modal.addEventListener('click', closeModal);
+function openModal(e) {
+  // Store the image we clicked on so we can return to it when the modal is closed.
+  lastClicked = e.target;
 
-  const thumbnails = document.querySelectorAll('.main-thumbnail');
+  // If there's a modal image already present don't do anything.
+  const modalImage = document.getElementById("modal-image");
+  if (modalImage) {
+    return;
+  }
 
-  thumbnails.forEach(thumbnail =>
-    thumbnail.addEventListener("click", openModal)
-  )
+  // Track key presses.
+  if (e.type == 'keydown') {
+    // the it's not the enter key or the space key pressed.
+    if (e.keyCode !== 13 && e.keyCode !== 32) {
+      return;
+    }
+  }
 
-}
+  // Blur other images in background.
+  document.documentElement.style.setProperty('--blur', 10 + 'px');
 
-function openModal() {
   // Get raw image source and add img element to modal.
-  var src = this.getAttribute('data-src');
-  var lightboxImage = document.createElement('img');
+  let lightboxImage = document.createElement('img');
   lightboxImage.id = "modal-image";
+  let src = this.getAttribute('data-src');
   lightboxImage.src = src;
-  var modalContent = document.getElementById('modal-content');
+  lightboxImage.alt = this.getAttribute('alt');
 
-  // Set the height of the modal based on window.
-  var windowHeight = window.innerHeight;
-  var windowWidth = window.innerWidth;
-  var imageHeight =  windowHeight - (windowHeight/5);
-  lightboxImage.height = imageHeight;
-
-  var modal = document.getElementById('modal');
-  // modal.style.paddingTop = 100+'px';
-  // console.log(imageHeight);
-  // console.log((windowHeight - imageHeight) / 2);
-
-
+  let modalContent = document.getElementById('modal-content');
   modalContent.appendChild(lightboxImage);
-  // modalContent.replaceChild(lightboxImage, 'img');
 
-  document.getElementById('modal').style.display = "flex";
-  var modalImage = document.getElementById('modal-image');
-  // console.log(modalImage.width);
+  // Show the modal
+  document.getElementById('modal').classList.add('modal-enter');
+  setTimeout(() => {
+    document.getElementById('modal').classList.add('modal-enter-active');
+  }, 150);
+
+  // Shift focus to close button.
+  document.getElementsByClassName('close')[0].focus();
 }
 
 // Close the Modal
-function closeModal() {
-  var element = document.getElementById("modal-image");
-  element.parentNode.removeChild(element);
+function closeModal(e) {
+  document.documentElement.style.setProperty('--blur', 0 + 'px');
 
-  document.getElementById('modal').style.display = "none";
+  document.getElementById('modal').classList.remove('modal-enter', 'modal-enter-active');
+
+  const modalImage = document.getElementById("modal-image");
+  if (!modalImage) {
+    return;
+  }
+
+  modalImage.parentNode.removeChild(modalImage);
+
+  lastClicked.focus();
 }
 
+function intersectionCallback(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      XHR('data/dogs.json', addImages);
+    }
+  });
+}
 
-window.onload = function(){
-  XHR('data/dogs.json', processRequest);
+window.onload = function () {
+  let lastClicked;
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: [1]
+  };
+
+  const footerObserver = new IntersectionObserver(intersectionCallback, observerOptions);
+  const target = document.querySelector('#global-footer');
+  footerObserver.observe(target);
+
+  // Add handlers for click and keydown events.
+  const modal = document.getElementById('modal');
+  modal.addEventListener('click', closeModal);
+
+  const close = document.getElementsByClassName('close');
+  close[0].addEventListener('keydown', closeModal);
+
+  const thumbnails = document.querySelectorAll('.main-thumbnail');
+
+  thumbnails.forEach(function (thumbnail) {
+    thumbnail.addEventListener("click", openModal);
+    thumbnail.addEventListener("keydown", openModal);
+  });
+
+  // If the esc key is pressed, close the modal.
+  document.addEventListener('keyup', (e) => {
+    if (e.keyCode === 27) {
+      closeModal();
+    }
+  });
 }
